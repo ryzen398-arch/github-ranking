@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                   String   @id @default(cuid())
+  username             String   @unique
+  passwordHash         String
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
+  subscriptionStatus   String? // active | trialing | past_due | canceled | null
+  favorites            Favorite[]
+  createdAt            DateTime @default(now())
+}
+
+model Favorite {
+  id            String    @id @default(cuid())
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fullName      String // 例: "vercel/next.js"
+  name          String
+  owner         String
+  htmlUrl       String
+  description   String?
+  language      String?
+  stars         Int       @default(0)
+  forks         Int       @default(0)
+  repoCreatedAt DateTime?
+  topics        String[]  @default([])
+  createdAt     DateTime  @default(now())
+
+  @@unique([userId, fullName])
+  @@index([userId])
+}
+
+// リポジトリごとのAI解説キャッシュ (全ユーザー共有・一度生成したら再利用)
+model Explanation {
+  fullName  String   @id
+  text      String
+  createdAt DateTime @default(now())
+}
