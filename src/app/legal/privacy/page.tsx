@@ -13,7 +13,7 @@ export default function PrivacyPage() {
       <div className="updated">最終更新日: 2026年7月8日</div>
 
       <p>
-        <span className="placeholder">[氏名または屋号]</span>(以下「当方」といいます)は、
+        <span className="placeholder">深見泰仁</span>(以下「当方」といいます)は、
         「GitHub Ranking」(以下「本サービス」といいます)における利用者の情報の取り扱いについて、
         以下のとおりプライバシーポリシー(以下「本ポリシー」といいます)を定めます。
       </p>
@@ -76,7 +76,7 @@ export default function PrivacyPage() {
       </p>
 
       <h2>7. お問い合わせ窓口</h2>
-      <p><span className="placeholder">[問い合わせ用メールアドレスを記入]</span></p>
+      <p><span className="placeholder">ryzen398@gmail.com</span></p>
 
       <h2>8. 本ポリシーの変更</h2>
       <p>
@@ -86,14 +86,6 @@ export default function PrivacyPage() {
 
       <h2>9. 準拠法</h2>
       <p>本ポリシーの解釈にあたっては、日本法を準拠法とします。</p>
-
-      <div className="note">
-        このページはテンプレートです。<span className="placeholder">赤字の項目</span>
-        を実際の情報に置き換えてご利用ください。特に「お問い合わせ窓口」は必ず実際に
-        受信できるメールアドレスに差し替えてください。本文言は一般的なひな形であり、
-        法的な妥当性を保証するものではありません。実際の運用に際しては専門家への
-        確認をおすすめします。
-      </div>
     </div>
   );
 }
