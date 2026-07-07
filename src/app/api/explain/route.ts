@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { stripeEnabled } from "@/lib/stripe";
+import { isAdminUser } from "@/lib/admin";
 import type { Repo } from "@/types";
 
 function buildPrompt(repo: Repo) {
@@ -22,7 +23,10 @@ export async function POST(req: NextRequest) {
 
   if (stripeEnabled) {
     const user = await prisma.user.findUnique({ where: { id: session.user.id } });
-    const active = user?.subscriptionStatus === "active" || user?.subscriptionStatus === "trialing";
+    const active =
+      isAdminUser(user?.username) ||
+      user?.subscriptionStatus === "active" ||
+      user?.subscriptionStatus === "trialing";
     if (!active) return NextResponse.json({ error: "subscription_required" }, { status: 402 });
   }
 
