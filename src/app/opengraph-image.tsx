@@ -6,6 +6,10 @@ export const contentType = "image/png";
 
 // Next.jsの規約ファイル: このファイルがあると /opengraph-image が生成され、
 // layout.tsx の openGraph/twitter メタデータに自動で紐付けられる。
+//
+// 画像生成エンジン(Satori)はCSSの対応範囲が限定的で、複雑なlinear-gradientの
+// 構文や、絵文字・記号(★など)はフォントの自動取得に失敗しやすいため、
+// ここでは単色背景 + 通常の文字だけで構成し、安定してビルドが通ることを優先する。
 export default async function Image() {
   return new ImageResponse(
     (
@@ -18,9 +22,6 @@ export default async function Image() {
           justifyContent: "center",
           padding: "90px",
           background: "#f4f7f3",
-          backgroundImage:
-            "linear-gradient(rgba(33,110,57,0.10) 2px, transparent 2px), linear-gradient(90deg, rgba(33,110,57,0.10) 2px, transparent 2px)",
-          backgroundSize: "36px 36px",
         }}
       >
         <div style={{ display: "flex", gap: 10, marginBottom: 36 }}>
@@ -54,7 +55,7 @@ export default async function Image() {
             marginTop: 44,
           }}
         >
-          ★ daily / weekly / monthly &nbsp;·&nbsp; AIによる日本語解説
+          daily / weekly / monthly - AIによる日本語解説
         </div>
       </div>
     ),
