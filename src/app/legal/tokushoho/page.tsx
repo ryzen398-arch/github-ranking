@@ -16,11 +16,11 @@ export default function TokushohoPage() {
         <tbody>
           <tr>
             <th>販売事業者</th>
-            <td><span className="placeholder">[氏名または屋号を記入]</span></td>
+            <td>深見泰仁</td>
           </tr>
           <tr>
             <th>運営責任者</th>
-            <td><span className="placeholder">[氏名を記入]</span></td>
+            <td>深見泰仁td>
           </tr>
           <tr>
             <th>所在地</th>
@@ -40,7 +40,7 @@ export default function TokushohoPage() {
           </tr>
           <tr>
             <th>メールアドレス</th>
-            <td><span className="placeholder">[問い合わせ用メールアドレスを記入]</span></td>
+            <td>ryzen398@gmail.com</td>
           </tr>
           <tr>
             <th>販売価格</th>
@@ -80,15 +80,6 @@ export default function TokushohoPage() {
           </tr>
         </tbody>
       </table>
-
-      <div className="note">
-        このページはテンプレートです。<span className="placeholder">赤字の項目</span>
-        を実際の情報に置き換えてご利用ください。個人事業主が所在地・電話番号を
-        常時公開せず「請求があり次第開示する」形にすることは、通信販売における
-        特定商取引法上の取り扱いとして認められていますが、最終的な要否や表記内容は
-        消費者庁のガイドラインや専門家(行政書士・弁護士)にご確認のうえ判断してください。
-        本文言は法的助言ではありません。
-      </div>
     </div>
   );
 }

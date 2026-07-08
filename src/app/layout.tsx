@@ -2,16 +2,55 @@ import type { Metadata } from "next";
 import { Providers } from "./providers";
 import "./globals.css";
 
+// NEXTAUTH_URLに"https://"が付いていない設定ミスがあっても
+// new URL()でビルドごと落ちないよう、ここで正規化しておく。
+function resolveSiteUrl(): URL {
+  const raw = process.env.NEXTAUTH_URL || "http://localhost:3000";
+  const withScheme = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+  try {
+    return new URL(withScheme);
+  } catch {
+    return new URL("http://localhost:3000");
+  }
+}
+
+const SITE_URL = resolveSiteUrl();
+const TITLE = "GitHub Ranking — 日・週・月のトップリポジトリ";
+const DESCRIPTION =
+  "GitHubで各期間に作成されたリポジトリをスター数順に集計。ログイン・お気に入り・AI解説(Proプラン)付き。";
+
 export const metadata: Metadata = {
-  title: "GitHub Ranking — 日・週・月のトップリポジトリ",
-  description:
-    "GitHubで各期間に作成されたリポジトリをスター数順に集計。ログイン・お気に入り・AI解説(Proプラン)付き。",
+  metadataBase: SITE_URL,
+  title: TITLE,
+  description: DESCRIPTION,
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon.ico", sizes: "32x32" },
     ],
     apple: "/apple-touch-icon.png",
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: SITE_URL,
+    siteName: "GitHub Ranking",
+    locale: "ja_JP",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: TITLE,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/opengraph-image"],
   },
 };
 

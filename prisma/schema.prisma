@@ -39,8 +39,11 @@ model Favorite {
 }
 
 // リポジトリごとのAI解説キャッシュ (全ユーザー共有・一度生成したら再利用)
+// version: 解説生成ロジックの世代。プロンプトを大きく変えたら上げると、
+// 古い解説が次回アクセス時に自動で作り直される。
 model Explanation {
   fullName  String   @id
   text      String
+  version   Int      @default(1)
   createdAt DateTime @default(now())
 }
