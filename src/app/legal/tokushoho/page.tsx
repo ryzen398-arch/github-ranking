@@ -16,11 +16,11 @@ export default function TokushohoPage() {
         <tbody>
           <tr>
             <th>販売事業者</th>
-            <td><span className="placeholder">深見泰仁</span></td>
+            <td>深見泰仁</td>
           </tr>
           <tr>
             <th>運営責任者</th>
-            <td><span className="placeholder">深見泰仁</span></td>
+            <td>深見泰仁</td>
           </tr>
           <tr>
             <th>所在地</th>
@@ -40,7 +40,7 @@ export default function TokushohoPage() {
           </tr>
           <tr>
             <th>メールアドレス</th>
-            <td><span className="placeholder">ryzen398@gmail.com</span></td>
+            <td>ryzen398@gmail.com</td>
           </tr>
           <tr>
             <th>販売価格</th>
