@@ -20,7 +20,7 @@ export default function TokushohoPage() {
           </tr>
           <tr>
             <th>運営責任者</th>
-            <td>深見泰仁td>
+            <td>深見泰仁</td>
           </tr>
           <tr>
             <th>所在地</th>

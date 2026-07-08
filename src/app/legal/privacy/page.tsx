@@ -13,7 +13,7 @@ export default function PrivacyPage() {
       <div className="updated">最終更新日: 2026年7月8日</div>
 
       <p>
-        個人開発Y(以下「当方」といいます)は、
+        深見泰仁(以下「当方」といいます)は、
         「GitHub Ranking」(以下「本サービス」といいます)における利用者の情報の取り扱いについて、
         以下のとおりプライバシーポリシー(以下「本ポリシー」といいます)を定めます。
       </p>
@@ -76,7 +76,7 @@ export default function PrivacyPage() {
       </p>
 
       <h2>7. お問い合わせ窓口</h2>
-      <p><span className="placeholder">[問い合わせ用メールアドレスを記入]</span></p>
+      <p>ryzen398@gmail.com</p>
 
       <h2>8. 本ポリシーの変更</h2>
       <p>
