@@ -3,7 +3,6 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { stripeEnabled } from "@/lib/stripe";
-import { isAdminUser } from "@/lib/admin";
 
 // 現在のログイン状態・Pro購読状態をまとめて返す。
 // フロントはログイン直後と決済完了後にこれを叩いて表示を更新する。
@@ -15,7 +14,6 @@ export async function GET() {
   const user = await prisma.user.findUnique({ where: { id: session.user.id } });
   const pro =
     !stripeEnabled ||
-    isAdminUser(user?.username) ||
     user?.subscriptionStatus === "active" ||
     user?.subscriptionStatus === "trialing";
   return NextResponse.json({

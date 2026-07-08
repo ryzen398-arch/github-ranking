@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState, useCallback } from "react";
-import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { AuthModal } from "@/components/AuthModal";
 import { RepoCard } from "@/components/RepoCard";
@@ -320,10 +319,6 @@ export default function Page() {
         <footer>
           データ: GitHub Search API(各期間に作成されたリポジトリをスター数順に取得)。未認証相当のため連続切替でレート制限がかかることがあります。
           AI解説はClaude APIで生成された参考情報です。
-          <br />
-          <Link href="/legal/tokushoho">特定商取引法に基づく表記</Link>
-          {" ・ "}
-          <Link href="/legal/privacy">プライバシーポリシー</Link>
         </footer>
       </main>
 
